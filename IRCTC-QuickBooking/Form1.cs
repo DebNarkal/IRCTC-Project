@@ -43,7 +43,7 @@ namespace IRCTC_QuickBooking
             toStn.AutoCompleteCustomSource = allowedTypes;
             toStn.AutoCompleteSource = AutoCompleteSource.CustomSource;
             toStn.AutoCompleteMode = AutoCompleteMode.Suggest;
-            radioButtonGen.Checked = true;
+            radioButtonTatkal.Checked = true;
             comboBoxJourneyClass.Items.AddRange(new string[] { "1A", "2A", "3A", "CC", "SL", "2S", "EC" });
             if(File.Exists("LastRecord.json"))
             {

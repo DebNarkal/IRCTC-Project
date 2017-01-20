@@ -42,8 +42,8 @@ namespace AutomationLogic
                     return "PT";
                 case "Physically Handicap":
                     return "HP";
-                case "Tatkal":
-                    return "CK";
+                case "TATKAL":
+                    return "TQ";
                 default:
                     return "GN";
             }

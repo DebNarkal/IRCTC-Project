@@ -14,12 +14,13 @@ namespace AutomationLogic
 
         public static void fillDetails(DataTable dataGridViewPassengerDetails, DataTable ChildDetails, string boardingPoint)
         {
+            WaitDriver.wait.Until(ExpectedConditions.ElementExists(By.ClassName("psgn-name")));
             var passengerDetailNames = Browser.Driver.FindElements(By.ClassName("psgn-name"));
             var passengerDetailAges = Browser.Driver.FindElements(By.ClassName("psgn-age"));
             var passengerDetailGender = Browser.Driver.FindElements(By.ClassName("psgn-gender"));
             var passengerBerthChoice = Browser.Driver.FindElements(By.ClassName("psgn-berth-choice"));
             var passengerSeniorCitizen = Browser.Driver.FindElements(By.ClassName("psgn-concopt"));
-            WaitDriver.wait.Until(ExpectedConditions.ElementExists(By.ClassName("psgn-name")));
+            
             if (!string.IsNullOrEmpty(boardingPoint))
             {
                 Browser.Driver.FindElement(By.Id("addPassengerForm:boardingStation")).SendKeys(boardingPoint.Trim());
