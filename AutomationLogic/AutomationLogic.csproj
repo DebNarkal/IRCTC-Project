@@ -80,9 +80,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="geckodriver.exe" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\LastRecord\LastRecord.csproj">
       <Project>{21841a36-9b49-4640-9ae3-7c4733299d44}</Project>
       <Name>LastRecord</Name>
