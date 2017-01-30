@@ -70,7 +70,10 @@
             this.radioButtonPremTat = new System.Windows.Forms.RadioButton();
             this.radioButtonGen = new System.Windows.Forms.RadioButton();
             this.buttonBookNow = new System.Windows.Forms.Button();
+            this.groupBoxPayment = new System.Windows.Forms.GroupBox();
             this.pleaseWait1 = new IRCTC_QuickBooking.PleaseWait();
+            this.label10 = new System.Windows.Forms.Label();
+            this.comboBoxPaymentMethod = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -78,15 +81,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChildDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPassengerDetails)).BeginInit();
             this.groupBox4.SuspendLayout();
+            this.groupBoxPayment.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonTrainList
             // 
             this.buttonTrainList.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTrainList.Location = new System.Drawing.Point(96, 184);
-            this.buttonTrainList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonTrainList.Location = new System.Drawing.Point(128, 226);
+            this.buttonTrainList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonTrainList.Name = "buttonTrainList";
-            this.buttonTrainList.Size = new System.Drawing.Size(86, 19);
+            this.buttonTrainList.Size = new System.Drawing.Size(115, 23);
             this.buttonTrainList.TabIndex = 50;
             this.buttonTrainList.Text = "GET TRAINS";
             this.buttonTrainList.UseVisualStyleBackColor = true;
@@ -95,39 +99,38 @@
             // frmStn
             // 
             this.frmStn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.frmStn.Location = new System.Drawing.Point(116, 34);
-            this.frmStn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.frmStn.Location = new System.Drawing.Point(155, 42);
+            this.frmStn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.frmStn.Name = "frmStn";
-            this.frmStn.Size = new System.Drawing.Size(168, 30);
+            this.frmStn.Size = new System.Drawing.Size(223, 30);
             this.frmStn.TabIndex = 10;
             // 
             // doj
             // 
             this.doj.CalendarFont = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.doj.CustomFormat = "";
-            this.doj.Location = new System.Drawing.Point(116, 146);
-            this.doj.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.doj.Location = new System.Drawing.Point(155, 180);
+            this.doj.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.doj.MinDate = new System.DateTime(2016, 10, 27, 0, 0, 0, 0);
             this.doj.Name = "doj";
-            this.doj.Size = new System.Drawing.Size(168, 22);
+            this.doj.Size = new System.Drawing.Size(223, 22);
             this.doj.TabIndex = 30;
             this.doj.Value = new System.DateTime(2016, 11, 5, 0, 0, 0, 0);
             // 
             // toStn
             // 
             this.toStn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toStn.Location = new System.Drawing.Point(116, 73);
-            this.toStn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.toStn.Location = new System.Drawing.Point(155, 90);
+            this.toStn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.toStn.Name = "toStn";
-            this.toStn.Size = new System.Drawing.Size(168, 30);
+            this.toStn.Size = new System.Drawing.Size(223, 30);
             this.toStn.TabIndex = 20;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 37);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(28, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 22);
             this.label1.TabIndex = 5;
@@ -137,8 +140,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(37, 76);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(49, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 22);
             this.label2.TabIndex = 6;
@@ -148,8 +150,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(21, 146);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(28, 180);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 22);
             this.label3.TabIndex = 7;
@@ -159,8 +160,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(21, 242);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(28, 298);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(126, 22);
             this.label4.TabIndex = 9;
@@ -169,18 +169,17 @@
             // textBoxUserName
             // 
             this.textBoxUserName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUserName.Location = new System.Drawing.Point(116, 23);
-            this.textBoxUserName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxUserName.Location = new System.Drawing.Point(155, 28);
+            this.textBoxUserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxUserName.Name = "textBoxUserName";
-            this.textBoxUserName.Size = new System.Drawing.Size(168, 30);
+            this.textBoxUserName.Size = new System.Drawing.Size(223, 30);
             this.textBoxUserName.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(21, 25);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(28, 31);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 22);
             this.label5.TabIndex = 51;
@@ -190,8 +189,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(21, 67);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(28, 82);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(94, 22);
             this.label6.TabIndex = 53;
@@ -200,28 +198,27 @@
             // textBoxPassword
             // 
             this.textBoxPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.Location = new System.Drawing.Point(116, 65);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPassword.Location = new System.Drawing.Point(155, 80);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
-            this.textBoxPassword.Size = new System.Drawing.Size(168, 30);
+            this.textBoxPassword.Size = new System.Drawing.Size(223, 30);
             this.textBoxPassword.TabIndex = 2;
             // 
             // textBoxTrains
             // 
             this.textBoxTrains.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTrains.Location = new System.Drawing.Point(116, 240);
-            this.textBoxTrains.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxTrains.Location = new System.Drawing.Point(155, 295);
+            this.textBoxTrains.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTrains.Name = "textBoxTrains";
-            this.textBoxTrains.Size = new System.Drawing.Size(168, 30);
+            this.textBoxTrains.Size = new System.Drawing.Size(223, 30);
             this.textBoxTrains.TabIndex = 60;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(21, 282);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(28, 347);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 22);
             this.label7.TabIndex = 61;
@@ -231,10 +228,10 @@
             // 
             this.comboBoxJourneyClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxJourneyClass.FormattingEnabled = true;
-            this.comboBoxJourneyClass.Location = new System.Drawing.Point(116, 280);
-            this.comboBoxJourneyClass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxJourneyClass.Location = new System.Drawing.Point(155, 345);
+            this.comboBoxJourneyClass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxJourneyClass.Name = "comboBoxJourneyClass";
-            this.comboBoxJourneyClass.Size = new System.Drawing.Size(168, 24);
+            this.comboBoxJourneyClass.Size = new System.Drawing.Size(223, 24);
             this.comboBoxJourneyClass.TabIndex = 70;
             this.comboBoxJourneyClass.SelectedIndexChanged += new System.EventHandler(this.comboBoxJourneyClass_SelectedIndexChanged);
             // 
@@ -245,11 +242,11 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.textBoxPassword);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 5);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(16, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(301, 111);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(401, 137);
             this.groupBox1.TabIndex = 71;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login Details";
@@ -272,11 +269,11 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.doj);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 121);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Location = new System.Drawing.Point(16, 149);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(301, 410);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(401, 505);
             this.groupBox2.TabIndex = 72;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Journey Details";
@@ -286,8 +283,7 @@
             this.label9.AutoSize = true;
             this.label9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(8, 111);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Location = new System.Drawing.Point(11, 137);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(135, 22);
             this.label9.TabIndex = 78;
@@ -297,10 +293,10 @@
             // textBoxBoardingPoint
             // 
             this.textBoxBoardingPoint.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBoardingPoint.Location = new System.Drawing.Point(116, 109);
-            this.textBoxBoardingPoint.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxBoardingPoint.Location = new System.Drawing.Point(155, 134);
+            this.textBoxBoardingPoint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxBoardingPoint.Name = "textBoxBoardingPoint";
-            this.textBoxBoardingPoint.Size = new System.Drawing.Size(168, 30);
+            this.textBoxBoardingPoint.Size = new System.Drawing.Size(223, 30);
             this.textBoxBoardingPoint.TabIndex = 77;
             this.textBoxBoardingPoint.Visible = false;
             // 
@@ -309,8 +305,7 @@
             this.label8.AutoSize = true;
             this.label8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(10, 111);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(13, 137);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(381, 22);
             this.label8.TabIndex = 76;
@@ -322,11 +317,11 @@
             this.groupBox3.Controls.Add(this.groupBox5);
             this.groupBox3.Controls.Add(this.dataGridViewPassengerDetails);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(317, 52);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Location = new System.Drawing.Point(423, 64);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox3.Size = new System.Drawing.Size(701, 545);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Size = new System.Drawing.Size(935, 671);
             this.groupBox3.TabIndex = 73;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Passenger Details";
@@ -334,11 +329,11 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.dataGridViewChildDetails);
-            this.groupBox5.Location = new System.Drawing.Point(13, 309);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Location = new System.Drawing.Point(17, 380);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox5.Size = new System.Drawing.Size(676, 213);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox5.Size = new System.Drawing.Size(901, 262);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Children Below 5 Years  (Ticket Is Not To Be Issued)";
@@ -355,11 +350,11 @@
             this.ChildName,
             this.ChildAge,
             this.ChildGender});
-            this.dataGridViewChildDetails.Location = new System.Drawing.Point(4, 21);
-            this.dataGridViewChildDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewChildDetails.Location = new System.Drawing.Point(5, 26);
+            this.dataGridViewChildDetails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewChildDetails.Name = "dataGridViewChildDetails";
             this.dataGridViewChildDetails.RowTemplate.Height = 24;
-            this.dataGridViewChildDetails.Size = new System.Drawing.Size(470, 124);
+            this.dataGridViewChildDetails.Size = new System.Drawing.Size(627, 153);
             this.dataGridViewChildDetails.TabIndex = 0;
             // 
             // SerNo
@@ -411,11 +406,11 @@
             this.Gender,
             this.BerthPreference,
             this.SeniorCitizen});
-            this.dataGridViewPassengerDetails.Location = new System.Drawing.Point(13, 18);
-            this.dataGridViewPassengerDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewPassengerDetails.Location = new System.Drawing.Point(17, 22);
+            this.dataGridViewPassengerDetails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewPassengerDetails.Name = "dataGridViewPassengerDetails";
             this.dataGridViewPassengerDetails.RowTemplate.Height = 24;
-            this.dataGridViewPassengerDetails.Size = new System.Drawing.Size(676, 263);
+            this.dataGridViewPassengerDetails.Size = new System.Drawing.Size(901, 324);
             this.dataGridViewPassengerDetails.TabIndex = 0;
             // 
             // sno
@@ -483,11 +478,11 @@
             this.groupBox4.Controls.Add(this.radioButtonPremTat);
             this.groupBox4.Controls.Add(this.radioButtonGen);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(322, 10);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Location = new System.Drawing.Point(429, 12);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox4.Size = new System.Drawing.Size(696, 42);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox4.Size = new System.Drawing.Size(928, 52);
             this.groupBox4.TabIndex = 74;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Quota";
@@ -495,8 +490,8 @@
             // radioButtonTatkal
             // 
             this.radioButtonTatkal.AutoSize = true;
-            this.radioButtonTatkal.Location = new System.Drawing.Point(505, 17);
-            this.radioButtonTatkal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButtonTatkal.Location = new System.Drawing.Point(673, 21);
+            this.radioButtonTatkal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioButtonTatkal.Name = "radioButtonTatkal";
             this.radioButtonTatkal.Size = new System.Drawing.Size(88, 21);
             this.radioButtonTatkal.TabIndex = 4;
@@ -507,8 +502,8 @@
             // radioButtonLadies
             // 
             this.radioButtonLadies.AutoSize = true;
-            this.radioButtonLadies.Location = new System.Drawing.Point(433, 17);
-            this.radioButtonLadies.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButtonLadies.Location = new System.Drawing.Point(577, 21);
+            this.radioButtonLadies.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioButtonLadies.Name = "radioButtonLadies";
             this.radioButtonLadies.Size = new System.Drawing.Size(83, 21);
             this.radioButtonLadies.TabIndex = 3;
@@ -519,8 +514,8 @@
             // radioButtonPhyHand
             // 
             this.radioButtonPhyHand.AutoSize = true;
-            this.radioButtonPhyHand.Location = new System.Drawing.Point(266, 17);
-            this.radioButtonPhyHand.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButtonPhyHand.Location = new System.Drawing.Point(355, 21);
+            this.radioButtonPhyHand.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioButtonPhyHand.Name = "radioButtonPhyHand";
             this.radioButtonPhyHand.Size = new System.Drawing.Size(209, 21);
             this.radioButtonPhyHand.TabIndex = 2;
@@ -531,8 +526,8 @@
             // radioButtonPremTat
             // 
             this.radioButtonPremTat.AutoSize = true;
-            this.radioButtonPremTat.Location = new System.Drawing.Point(132, 17);
-            this.radioButtonPremTat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButtonPremTat.Location = new System.Drawing.Point(176, 21);
+            this.radioButtonPremTat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioButtonPremTat.Name = "radioButtonPremTat";
             this.radioButtonPremTat.Size = new System.Drawing.Size(163, 21);
             this.radioButtonPremTat.TabIndex = 1;
@@ -543,8 +538,8 @@
             // radioButtonGen
             // 
             this.radioButtonGen.AutoSize = true;
-            this.radioButtonGen.Location = new System.Drawing.Point(45, 17);
-            this.radioButtonGen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButtonGen.Location = new System.Drawing.Point(60, 21);
+            this.radioButtonGen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioButtonGen.Name = "radioButtonGen";
             this.radioButtonGen.Size = new System.Drawing.Size(102, 21);
             this.radioButtonGen.TabIndex = 0;
@@ -555,37 +550,72 @@
             // buttonBookNow
             // 
             this.buttonBookNow.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBookNow.Location = new System.Drawing.Point(544, 622);
-            this.buttonBookNow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonBookNow.Location = new System.Drawing.Point(725, 766);
+            this.buttonBookNow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonBookNow.Name = "buttonBookNow";
-            this.buttonBookNow.Size = new System.Drawing.Size(217, 38);
+            this.buttonBookNow.Size = new System.Drawing.Size(289, 47);
             this.buttonBookNow.TabIndex = 75;
             this.buttonBookNow.Text = "Book Now";
             this.buttonBookNow.UseVisualStyleBackColor = true;
             this.buttonBookNow.Click += new System.EventHandler(this.buttonBookNow_Click);
             // 
+            // groupBoxPayment
+            // 
+            this.groupBoxPayment.Controls.Add(this.comboBoxPaymentMethod);
+            this.groupBoxPayment.Controls.Add(this.label10);
+            this.groupBoxPayment.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxPayment.Location = new System.Drawing.Point(1364, 64);
+            this.groupBoxPayment.Name = "groupBoxPayment";
+            this.groupBoxPayment.Size = new System.Drawing.Size(445, 225);
+            this.groupBoxPayment.TabIndex = 77;
+            this.groupBoxPayment.TabStop = false;
+            this.groupBoxPayment.Text = "Payment Details";
+            // 
             // pleaseWait1
             // 
-            this.pleaseWait1.Location = new System.Drawing.Point(15, 182);
-            this.pleaseWait1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pleaseWait1.Location = new System.Drawing.Point(20, 224);
+            this.pleaseWait1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pleaseWait1.Name = "pleaseWait1";
-            this.pleaseWait1.Size = new System.Drawing.Size(271, 24);
+            this.pleaseWait1.Size = new System.Drawing.Size(361, 30);
             this.pleaseWait1.TabIndex = 75;
             this.pleaseWait1.Visible = false;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(24, 35);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(128, 17);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Payment Method";
+            // 
+            // comboBoxPaymentMethod
+            // 
+            this.comboBoxPaymentMethod.FormattingEnabled = true;
+            this.comboBoxPaymentMethod.Items.AddRange(new object[] {
+            "Debit Card",
+            "Net Banking",
+            "Payment Wallets"});
+            this.comboBoxPaymentMethod.Location = new System.Drawing.Point(158, 32);
+            this.comboBoxPaymentMethod.Name = "comboBoxPaymentMethod";
+            this.comboBoxPaymentMethod.Size = new System.Drawing.Size(185, 24);
+            this.comboBoxPaymentMethod.TabIndex = 1;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1117, 670);
+            this.ClientSize = new System.Drawing.Size(1821, 825);
+            this.Controls.Add(this.groupBoxPayment);
             this.Controls.Add(this.buttonBookNow);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "IRCTC-Quick Booking";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -597,6 +627,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPassengerDetails)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBoxPayment.ResumeLayout(false);
+            this.groupBoxPayment.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -644,6 +676,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ChildName;
         private System.Windows.Forms.DataGridViewComboBoxColumn ChildAge;
         private System.Windows.Forms.DataGridViewComboBoxColumn ChildGender;
+        private System.Windows.Forms.GroupBox groupBoxPayment;
+        private System.Windows.Forms.ComboBox comboBoxPaymentMethod;
+        private System.Windows.Forms.Label label10;
     }
 }
 

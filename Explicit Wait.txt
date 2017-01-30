@@ -1,0 +1,14 @@
+Explicit Wait can be done in the following way:
+
+
+  var element = wait.Until(d =>
+				{
+
+					var elements = driver.FindElements(By.ClassName("K1"));
+					if(elements.Count>0)
+					{
+						return elements[0];
+					}
+					return null;  //Repeat the searching process for the timespan or until the element is found
+		
+				});

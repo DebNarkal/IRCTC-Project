@@ -280,7 +280,7 @@ namespace IRCTC_QuickBooking
             DataGridViewComboBoxCell dgvcc;
             List<string> popCell = new List<string>();
 
-            if (comboBoxJourneyClass.Text == "CC" || comboBoxJourneyClass.Text == "2S")
+            if (comboBoxJourneyClass.Text == "CC" || comboBoxJourneyClass.Text == "2S" || comboBoxJourneyClass.Text == "EC")
             {
                 popCell.AddRange(new string[] { "No Preference", "WINDOW SIDE" });
             }
