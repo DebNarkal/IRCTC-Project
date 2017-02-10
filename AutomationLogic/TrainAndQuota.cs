@@ -28,24 +28,18 @@ namespace AutomationLogic
             IJavaScriptExecutor exec = driver as IJavaScriptExecutor;
             try
             {
-                string Msg = Browser.Driver.FindElement(By.XPath("/html/body/div[3]/div[2]/form[1]/div[2]/div/div[1]/div/div[1]/div[2]/table/tbody/tr[2]/td[2]")).Text;
-                if (Msg.Trim() == @"NOT AVAILABLE" || Msg.Trim() == @"TRAIN DEPARTED\r\n")
-                {
-                    exec.ExecuteScript("alert('Booking not possible')",null);
-                    driver.SwitchTo().Alert();
-                    Environment.Exit(0);
-                   //Msg = Browser.Driver.FindElement(By.XPath("/html/body/div[3]/div[2]/form[1]/div[2]/div/div[1]/div/div[1]/div[2]/table/tbody/tr[2]/td[2]")).Text;
-                    return;
-                }
                 WaitDriver.wait.Until(ExpectedConditions.ElementExists(By.Id(bookNowId.Trim())));
                 var bookNowElement = driver.FindElement(By.Id(bookNowId));
                 exec.ExecuteScript("arguments[0].click();", bookNowElement);
+                driver.SwitchTo().Alert().Accept();
+
             }
+            catch (NoAlertPresentException) { }
             catch (NoSuchElementException)
             {
                 try
                 {
-                    exec.ExecuteScript("alert('Booking is not possible')",null);
+                    exec.ExecuteScript("alert('Booking is not possible')", null);
                     driver.SwitchTo().Alert();
                     Environment.Exit(0);
                 }

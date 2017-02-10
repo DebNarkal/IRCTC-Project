@@ -45,6 +45,8 @@ namespace IRCTC_QuickBooking
             toStn.AutoCompleteMode = AutoCompleteMode.Suggest;
             radioButtonTatkal.Checked = true;
             comboBoxJourneyClass.Items.AddRange(new string[] { "1A", "2A", "3A", "CC", "SL", "2S", "EC" });
+            comboBoxPaymentMethod.SelectedIndex = 1;
+            comboBoxBankName.SelectedIndex = 0;
             if(File.Exists("LastRecord.json"))
             {
                 fillForm();
@@ -304,5 +306,15 @@ namespace IRCTC_QuickBooking
         {
 
         }
+
+        private void comboBoxPaymentMethod_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (comboBoxPaymentMethod.SelectedItem.ToString() == "Net Banking")
+            {
+                
+            }
+        }
+
+        
     }
 }
