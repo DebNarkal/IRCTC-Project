@@ -30,7 +30,7 @@ namespace CustomizedTextBox
         private void InitializeComponent()
         {
             _listBox = new ListBox();
-            _listBox.Font = new Font("Times New Roman", 12);
+            _listBox.Font = new Font("Calibri light", 10);
             this._listBox.MouseClick+=_listBox_MouseClick;
             this.KeyDown += this_KeyDown;
             this.KeyUp += this_KeyUp;
