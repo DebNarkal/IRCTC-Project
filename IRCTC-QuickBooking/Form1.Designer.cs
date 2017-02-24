@@ -1,4 +1,5 @@
-﻿namespace IRCTC_QuickBooking
+﻿using CustomizedTextBox;
+namespace IRCTC_QuickBooking
 {
     partial class Form1
     {
@@ -30,9 +31,11 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.buttonTrainList = new System.Windows.Forms.Button();
-            this.frmStn = new System.Windows.Forms.TextBox();
+            this.frmStn = new AutoCompleteTextBox();
+            //this.frmStn = new System.Windows.Forms.TextBox();
             this.doj = new System.Windows.Forms.DateTimePicker();
-            this.toStn = new System.Windows.Forms.TextBox();
+            this.toStn = new AutoCompleteTextBox();
+            //this.toStn = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -718,9 +721,9 @@
 
         #endregion
         private System.Windows.Forms.Button buttonTrainList;
-        private System.Windows.Forms.TextBox frmStn;
+        private AutoCompleteTextBox frmStn;
         private System.Windows.Forms.DateTimePicker doj;
-        private System.Windows.Forms.TextBox toStn;
+        private AutoCompleteTextBox toStn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

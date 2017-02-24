@@ -37,12 +37,17 @@ namespace IRCTC_QuickBooking
                 this.dataGridViewChildDetails.Rows.Add(i.ToString());
             }
             allowedTypes.AddRange(StationCodes.Stations);
-            frmStn.AutoCompleteCustomSource = allowedTypes;
-            frmStn.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            frmStn.AutoCompleteMode = AutoCompleteMode.Suggest;
-            toStn.AutoCompleteCustomSource = allowedTypes;
-            toStn.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            toStn.AutoCompleteMode = AutoCompleteMode.Suggest;
+
+            frmStn.Values = StationCodes.Stations;
+            toStn.Values = StationCodes.Stations;
+            //frmStn.AutoCompleteCustomSource = allowedTypes;
+            //frmStn.AutoCompleteSource = AutoCompleteSource.CustomSource;            
+            //frmStn.AutoCompleteMode = AutoCompleteMode.Suggest;
+
+            //toStn.AutoCompleteCustomSource = allowedTypes;
+            //toStn.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            //toStn.AutoCompleteMode = AutoCompleteMode.Suggest;
+
             radioButtonTatkal.Checked = true;
             comboBoxJourneyClass.Items.AddRange(new string[] { "1A", "2A", "3A", "CC", "SL", "2S", "EC" });
             comboBoxPaymentMethod.SelectedIndex = 1;

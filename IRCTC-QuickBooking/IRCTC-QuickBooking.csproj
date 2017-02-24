@@ -95,6 +95,10 @@
       <Project>{e606fd96-db6e-4462-b02f-d4a697489856}</Project>
       <Name>AutomationLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CustomTextBox\CustomTextBox.csproj">
+      <Project>{d54522cc-6ba5-4f2a-a079-81097cdec940}</Project>
+      <Name>CustomTextBox</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LastRecord\LastRecord.csproj">
       <Project>{21841a36-9b49-4640-9ae3-7c4733299d44}</Project>
       <Name>LastRecord</Name>
