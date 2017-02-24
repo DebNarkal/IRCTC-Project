@@ -106,12 +106,12 @@ namespace IRCTC_QuickBooking
             trainFillup.ContinueWith((antecedent) =>
             {
                 AutoCompleteStringCollection trainHints = new AutoCompleteStringCollection();
-                trainHints.AddRange(listOfTrains.ToArray());
+                //trainHints.AddRange(listOfTrains.ToArray());
                 textBoxTrains.Clear();
-
-                textBoxTrains.AutoCompleteCustomSource = trainHints;
-                textBoxTrains.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                textBoxTrains.AutoCompleteMode = AutoCompleteMode.Suggest;
+                textBoxTrains.Values = listOfTrains.ToArray();
+                //textBoxTrains.AutoCompleteCustomSource = trainHints;
+                //textBoxTrains.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                //textBoxTrains.AutoCompleteMode = AutoCompleteMode.Suggest;
                 pleaseWait1.Visible = false;
                 buttonTrainList.Enabled = true;
             }, TaskScheduler.FromCurrentSynchronizationContext()
@@ -276,6 +276,7 @@ namespace IRCTC_QuickBooking
             label8.Visible = false;
             label9.Visible = true;
             textBoxBoardingPoint.Visible = true;
+            //textBoxTrains.Values = StationCodes.Stations;
             textBoxBoardingPoint.AutoCompleteCustomSource = allowedTypes;
             textBoxBoardingPoint.AutoCompleteSource = AutoCompleteSource.CustomSource;
             textBoxBoardingPoint.AutoCompleteMode = AutoCompleteMode.Suggest;

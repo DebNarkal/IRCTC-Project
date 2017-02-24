@@ -9,6 +9,11 @@ using System.Windows.Forms;
 
 namespace CustomizedTextBox
 {
+    /******************************************************************************
+     * Code taken from stack overflow from the location https://goo.gl/VPLcfq     *
+     * authored by PaRiMaL RaJ                                                    *
+     * ****************************************************************************/
+
     public class AutoCompleteTextBox : TextBox
     {
         private ListBox _listBox;
@@ -26,8 +31,21 @@ namespace CustomizedTextBox
         {
             _listBox = new ListBox();
             _listBox.Font = new Font("Times New Roman", 12);
+            this._listBox.MouseClick+=_listBox_MouseClick;
             this.KeyDown += this_KeyDown;
             this.KeyUp += this_KeyUp;
+        }
+
+        private void _listBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (_listBox.Visible)
+            {
+                Text = _listBox.SelectedItem.ToString();
+                ResetListBox();
+                _formerValue = Text;
+                this.Select(this.Text.Length, 0);
+                //e.Handled = true;
+            }
         }
 
         private void ShowListBox()
@@ -50,8 +68,7 @@ namespace CustomizedTextBox
 
         private void this_KeyUp(object sender, KeyEventArgs e)
         {
-            if(this.Text.Length>1)
-                UpdateListBox();
+            UpdateListBox();
         }
 
         private void this_KeyDown(object sender, KeyEventArgs e)
@@ -114,8 +131,28 @@ namespace CustomizedTextBox
 
             if (_values != null && word.Length > 0)
             {
-                string[] matches = Array.FindAll(_values,
-                                                 x => (x.ToLower().Contains(word.ToLower())));
+                string[] matches;
+                HashSet<string> startsWith;
+                List<string> containsText = new List<string>();
+                //if (word.Length == 1)
+                //{
+                    startsWith = new HashSet<string>((from res in _values
+                               where res.ToLower().StartsWith(word.ToLower())
+                               select res).Take(10).ToList());
+                //}
+                //else
+                //{
+                    containsText = (from res in _values
+                               where res.ToLower().Contains(word.ToLower())
+                               select res).ToList();
+                //}
+                foreach(string items in containsText)
+                {
+                    startsWith.Add(items);
+                }
+                matches = startsWith.ToArray();
+                //string[] matches = Array.FindAll(_values,
+                //x => (x.ToLower().Contains(word.ToLower())));
                 if (matches.Length > 0)
                 {
                     ShowListBox();
@@ -130,14 +167,14 @@ namespace CustomizedTextBox
                     {
                         for (int i = 0; i < _listBox.Items.Count; i++)
                         {
-                            if (i < 20)
+                            if (i < 10)
                                 _listBox.Height += _listBox.GetItemHeight(i);
                             // it item width is larger than the current one
                             // set it to the new max item width
                             // GetItemRectangle does not work for me
                             // we add a little extra space by using '_'
                             int itemWidth = (int)graphics.MeasureString(((string)_listBox.Items[i]) + "_", _listBox.Font).Width;
-                            _listBox.Width = (_listBox.Width < itemWidth) ? itemWidth : this.Width;;
+                            _listBox.Width = 168;//(_listBox.Width < itemWidth) ? itemWidth : this.Width;
                         }
                     }
                     _listBox.EndUpdate();

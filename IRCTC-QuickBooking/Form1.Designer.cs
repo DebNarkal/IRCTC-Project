@@ -44,13 +44,13 @@ namespace IRCTC_QuickBooking
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.textBoxTrains = new System.Windows.Forms.TextBox();
+            this.textBoxTrains = new AutoCompleteTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBoxJourneyClass = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBoxBoardingPoint = new System.Windows.Forms.TextBox();
+            this.textBoxBoardingPoint = new AutoCompleteTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -732,7 +732,7 @@ namespace IRCTC_QuickBooking
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.TextBox textBoxTrains;
+        private AutoCompleteTextBox textBoxTrains;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBoxJourneyClass;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -749,7 +749,7 @@ namespace IRCTC_QuickBooking
         private System.Windows.Forms.Button buttonBookNow;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBoxBoardingPoint;
+        private AutoCompleteTextBox textBoxBoardingPoint;
         private System.Windows.Forms.DataGridViewTextBoxColumn sno;
         private System.Windows.Forms.DataGridViewTextBoxColumn PName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Age;
