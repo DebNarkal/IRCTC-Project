@@ -19,6 +19,7 @@ namespace IRCTC_QuickBooking
         TimeSpan waitTimeSpan = new TimeSpan();
         AutoCompleteStringCollection allowedTypes = new AutoCompleteStringCollection();
         List<string> journeyClass = new List<string>();
+        int count;
 
         public Form1()
         {
@@ -28,16 +29,18 @@ namespace IRCTC_QuickBooking
             doj.MaxDate = doj.MinDate.AddDays(90);
             doj.Value = DateTime.Today;
             waitTimeSpan = TimeSpan.FromMilliseconds(50);
-            for (int i = 1; i < 7; i++)
-            {
-                this.dataGridViewPassengerDetails.Rows.Add(i.ToString());
-            }
-            for (int i = 1; i < 3;i++ )
-            {
-                this.dataGridViewChildDetails.Rows.Add(i.ToString());
-            }
-            allowedTypes.AddRange(StationCodes.Stations);
 
+            allowedTypes.AddRange(StationCodes.Stations);
+            if (radioButtonTatkal.Checked)
+            {
+                count = 4;
+                DataGridViewRows();
+            }
+            else
+            {
+                count = 6;
+                DataGridViewRows();
+            }
             frmStn.Values = StationCodes.Stations;
             toStn.Values = StationCodes.Stations;
             //frmStn.AutoCompleteCustomSource = allowedTypes;
@@ -52,10 +55,28 @@ namespace IRCTC_QuickBooking
             comboBoxJourneyClass.Items.AddRange(new string[] { "1A", "2A", "3A", "CC", "SL", "2S", "EC" });
             comboBoxPaymentMethod.SelectedIndex = 1;
             comboBoxBankName.SelectedIndex = 0;
-            if(File.Exists("LastRecord.json"))
+            if (File.Exists("LastRecord.json"))
             {
                 fillForm();
             }
+        }
+
+        private void DataGridViewRows()
+        {
+            dataGridViewPassengerDetails.Rows.Clear();
+            dataGridViewPassengerDetails.Refresh();
+            dataGridViewChildDetails.Rows.Clear();
+            dataGridViewChildDetails.Refresh();
+            for (int i = 1; i <= count; i++)
+            {
+                this.dataGridViewPassengerDetails.Rows.Add(i.ToString());
+            }
+            for (int i = 1; i < 3; i++)
+            {
+                this.dataGridViewChildDetails.Rows.Add(i.ToString());
+            }
+            PopulatePassengerDetailsDatagrid();
+
         }
 
         private void fillForm()
@@ -64,18 +85,19 @@ namespace IRCTC_QuickBooking
             Info result = JsonConvert.DeserializeObject<Info>(data);
             textBoxUserName.Text = result.usrName;
             textBoxPassword.Text = result.pwd;
+            textBoxPhoneNo.Text = result.phone;
             frmStn.Text = result.frmStn;
             toStn.Text = result.toStn;
             textBoxTrains.Text = result.trainInfo;
             comboBoxJourneyClass.Text = result.journeyClass;
-            int i=0;
-            foreach(DataRow row in result.passengerInfo.Rows)
+            int i = 0;
+            foreach (DataRow row in result.passengerInfo.Rows)
             {
                 for (int j = 1; j < 5; j++)
                 {
                     dataGridViewPassengerDetails.Rows[i].Cells[j].Value = row[j].ToString();
                 }
-                if(row[5].ToString() == "True")
+                if (row[5].ToString() == "True")
                 {
                     dataGridViewPassengerDetails.Rows[i].Cells[5].Value = Convert.ToBoolean(row[5]);
                 }
@@ -150,14 +172,14 @@ namespace IRCTC_QuickBooking
             TrainAndQuota.SelectTrainAndQuota(travelQuota, trainNumber, journeyClass);
 
 
-            
+
             if (textBoxBoardingPoint.Visible)
             {
-                PassengerDetails.fillDetails(dt, childDetails, textBoxBoardingPoint.Text.Trim());
+                PassengerDetails.fillDetails(dt, childDetails, textBoxBoardingPoint.Text.Trim(), textBoxPhoneNo.Text.Trim());
             }
             else
             {
-                PassengerDetails.fillDetails(dt, childDetails, string.Empty);
+                PassengerDetails.fillDetails(dt, childDetails, string.Empty, textBoxPhoneNo.Text.Trim());
             }
         }
 
@@ -168,6 +190,7 @@ namespace IRCTC_QuickBooking
         {
             rec.usrName = textBoxUserName.Text.Trim();
             rec.pwd = textBoxPassword.Text.Trim();
+            rec.phone = textBoxPhoneNo.Text.Trim();
             rec.frmStn = frmStn.Text.Trim();
             rec.toStn = toStn.Text.Trim();
             rec.trainInfo = textBoxTrains.Text.Trim();
@@ -285,7 +308,16 @@ namespace IRCTC_QuickBooking
 
         private void comboBoxJourneyClass_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DataGridViewComboBoxCell dgvcc;
+
+
+            //dataGridViewPassengerDetails.Rows[0].Cells[4] = dgvcc;
+            //dataGridViewPassengerDetails.Rows[1].Cells[4] = dgvcc;
+
+            PopulatePassengerDetailsDatagrid();
+        }
+
+        private void PopulatePassengerDetailsDatagrid()
+        {
             List<string> popCell = new List<string>();
 
             if (comboBoxJourneyClass.Text == "CC" || comboBoxJourneyClass.Text == "2S" || comboBoxJourneyClass.Text == "EC")
@@ -296,11 +328,11 @@ namespace IRCTC_QuickBooking
             {
                 popCell.AddRange(new string[] { "No Preference", "LOWER", "MIDDLE", "UPPER", "SIDE LOWER", "SIDE UPPER" });
             }
-            //dataGridViewPassengerDetails.Rows[0].Cells[4] = dgvcc;
-            //dataGridViewPassengerDetails.Rows[1].Cells[4] = dgvcc;
-            for (int i = 0; i < 6; ++i)
+
+            for (int i = 0; i < count; ++i)
             {
-                dgvcc = new DataGridViewComboBoxCell();
+
+                DataGridViewComboBoxCell dgvcc = new DataGridViewComboBoxCell();
                 dgvcc.Items.AddRange(popCell.ToArray());
                 dataGridViewPassengerDetails.Rows[i].Cells[4] = dgvcc;
                 dataGridViewPassengerDetails.Rows[i].Cells[4].Value = "No Preference";
@@ -317,10 +349,24 @@ namespace IRCTC_QuickBooking
         {
             if (comboBoxPaymentMethod.SelectedItem.ToString() == "Net Banking")
             {
-                
+
             }
         }
 
-        
+        private void radioButtonTatkal_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonTatkal.Checked)
+            {
+                count = 4;
+                DataGridViewRows();
+            }
+            else
+            {
+                count = 6;
+                DataGridViewRows();
+            }
+        }
+
+
     }
 }

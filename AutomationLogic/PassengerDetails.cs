@@ -12,7 +12,7 @@ namespace AutomationLogic
     public class PassengerDetails
     {
 
-        public static void fillDetails(DataTable dataGridViewPassengerDetails, DataTable ChildDetails, string boardingPoint)
+        public static void fillDetails(DataTable dataGridViewPassengerDetails, DataTable ChildDetails, string boardingPoint, string phoneNo)
         {
             WaitDriver.wait.Until(ExpectedConditions.ElementExists(By.ClassName("psgn-name")));
             var passengerDetailNames = Browser.Driver.FindElements(By.ClassName("psgn-name"));
@@ -47,6 +47,12 @@ namespace AutomationLogic
                     Browser.Driver.FindElement(By.Id("addPassengerForm:childInfoTable:"+j+":infantAge")).SendKeys(row[2].ToString());
                     Browser.Driver.FindElement(By.Id("addPassengerForm:childInfoTable:" + j + ":infantGender")).SendKeys(row[3].ToString());
                 }
+            }
+            if(!string.IsNullOrEmpty(phoneNo))
+            {
+                var elemPhoneNo = Browser.Driver.FindElement(By.Id("addPassengerForm:mobileNo"));
+                elemPhoneNo.Clear();
+                elemPhoneNo.SendKeys(phoneNo);
             }
         }
     }

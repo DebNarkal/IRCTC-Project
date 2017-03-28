@@ -11,6 +11,7 @@ namespace LastRecord
     {
         public string usrName { get; set; }
         public string pwd { get; set; }
+        public string phone { get; set; }
         public string frmStn { get; set; }
         public string toStn { get; set; }
         public string trainInfo { get; set; }
