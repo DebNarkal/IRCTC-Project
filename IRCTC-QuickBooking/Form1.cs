@@ -27,7 +27,6 @@ namespace IRCTC_QuickBooking
             InitializeComponent();
             doj.MinDate = DateTime.Today;
             doj.MaxDate = doj.MinDate.AddDays(90);
-            doj.Value = DateTime.Today;
             waitTimeSpan = TimeSpan.FromMilliseconds(50);
 
             allowedTypes.AddRange(StationCodes.Stations);
@@ -89,6 +88,15 @@ namespace IRCTC_QuickBooking
             frmStn.Text = result.frmStn;
             toStn.Text = result.toStn;
             textBoxTrains.Text = result.trainInfo;
+            DateTime journeyDate = result.journeyDate;
+            if(journeyDate<DateTime.Today)
+            {
+                doj.Value = DateTime.Today;
+            }
+            else
+            {
+                doj.Value = journeyDate;
+            }
             comboBoxJourneyClass.Text = result.journeyClass;
             int i = 0;
             foreach (DataRow row in result.passengerInfo.Rows)
@@ -196,6 +204,7 @@ namespace IRCTC_QuickBooking
             rec.trainInfo = textBoxTrains.Text.Trim();
             rec.journeyClass = comboBoxJourneyClass.Text.Trim();
             rec.passengerInfo = passengerDetailsTable;
+            rec.journeyDate = doj.Value;
         }
 
         /// <summary>

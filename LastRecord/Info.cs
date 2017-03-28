@@ -14,6 +14,7 @@ namespace LastRecord
         public string phone { get; set; }
         public string frmStn { get; set; }
         public string toStn { get; set; }
+        public DateTime journeyDate { get; set; }
         public string trainInfo { get; set; }
         public string journeyClass { get; set; }
         public DataTable passengerInfo { get; set; }
