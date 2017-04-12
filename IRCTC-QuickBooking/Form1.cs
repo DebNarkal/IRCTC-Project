@@ -122,26 +122,22 @@ namespace IRCTC_QuickBooking
                 MessageBox.Show("Please select start and destination");
                 return;
             }
-            string postDatas = string.Format("pnrQ={0}&dest={1}", frmStn.Text.Substring(frmStn.Text.IndexOf('-') + 1), toStn.Text.Substring(toStn.Text.IndexOf('-') + 1));
+            
+            string postDatas = string.Format("sourceCityCode={0}&destinationCityCode={1}&doj={2}", frmStn.Text.Substring(frmStn.Text.IndexOf('-') + 1).Trim(), toStn.Text.Substring(toStn.Text.IndexOf('-') + 1).Trim(), doj.Value.ToString("dd-MM-yyyy"));
             List<string> listOfTrains = new List<string>();
             pleaseWait1.Visible = true;
             buttonTrainList.Enabled = false;
             Task trainFillup = new Task(() =>
                 {
-                    TrainsForTheDay getListOfTrains = new TrainsForTheDay(new TrainLists() { postData = postDatas }, doj.Value.DayOfWeek.ToString());
-
-                    listOfTrains = getListOfTrains.trainLists();
+                    var TrainLists = new TrainLists(postDatas, doj.Value.DayOfWeek.ToString());
+                    listOfTrains = TrainLists.GetTrains();
                 }
             );
             trainFillup.ContinueWith((antecedent) =>
             {
                 AutoCompleteStringCollection trainHints = new AutoCompleteStringCollection();
-                //trainHints.AddRange(listOfTrains.ToArray());
                 textBoxTrains.Clear();
                 textBoxTrains.Values = listOfTrains.ToArray();
-                //textBoxTrains.AutoCompleteCustomSource = trainHints;
-                //textBoxTrains.AutoCompleteSource = AutoCompleteSource.CustomSource;
-                //textBoxTrains.AutoCompleteMode = AutoCompleteMode.Suggest;
                 pleaseWait1.Visible = false;
                 buttonTrainList.Enabled = true;
             }, TaskScheduler.FromCurrentSynchronizationContext()

@@ -9,92 +9,44 @@ using System.Text;
 
 namespace QuickBookingLogic
 {
-    public class TrainLists:IListOfTrains
+    public class TrainLists
     {
-        //void GetTrains(HttpWebRequest req, string postData)
-        //{
-        //    string result;
-        //    byte[] credentials = Encoding.UTF8.GetBytes(postData);
-        //    req.ContentLength = credentials.Length;
-        //    using (Stream stWrite = req.GetRequestStream())
-        //    {
-        //        stWrite.Write(credentials, 0, credentials.Length);
-        //    }
-        //    HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-        //    using (Stream read = resp.GetResponseStream())
-        //    {
-        //        using (StreamReader reading = new StreamReader(read))
-        //        {
-        //            result = reading.ReadToEnd();
-        //        }
-        //    }
-        //    JObject jsondata = (JObject)JsonConvert.DeserializeObject(result);
-        //    string trainInfo = jsondata["data"].ToString();
-        //    string[] trains = trainInfo.Split(';');
-        //}
+        private string postDatas;
+        private string dayOfWeek;
+        private string uri = "https://www.confirmtkt.com//api/multimodal/getdirecttrainscity?";
+
+        public TrainLists(string _postDatas, string _dayOfWeek)
+        {
+            // TODO: Complete member initialization
+            this.postDatas = _postDatas;
+            this.dayOfWeek = _dayOfWeek.Substring(0,3);
+        }
         public List<string> trains { get; set; }
-        public string postData { get; set; }
-        public void GetTrains()
-        {            
-            //string uri = "http://etrain.info/ajax.php?q=trains&v=2.8.2";
-            //HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri);
-            //req.Method = "POST";
-            //req.Accept = "application/json";
-            //req.ContentType = "application/x-www-form-urlencoded; charset=UTF-8";
-            //req.KeepAlive = false;
-            //req.Timeout = System.Threading.Timeout.Infinite;
-            //byte[] credentials = Encoding.UTF8.GetBytes(postData);
-            //req.ContentLength = credentials.Length;
-            //using (Stream stWrite = req.GetRequestStream())
-            //{
-            //    stWrite.Write(credentials, 0, credentials.Length);
-            //}
-            //HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-            //using (Stream read = resp.GetResponseStream())
-            //{
-            //    using (StreamReader reading = new StreamReader(read))
-            //    {
-            //        result = reading.ReadToEnd();
-            //    }
-            //}
-            //JObject jsondata = (JObject)JsonConvert.DeserializeObject(result);
-            //string trainInfo = jsondata["data"].ToString();
-            //trains = trainInfo.Split(';');
-            string result;
-            HtmlDocument doc = new HtmlDocument();
-            string uri = "http://railwayapi.com/getTrainsBetween_old.php";
-            trains = new List<string>();
-            //postData = "pnrQ=HWH&dest=PNBE";
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri);
-            req.Method = "POST";
-            req.Accept = "application/json";
-            req.ContentType = "application/x-www-form-urlencoded; charset=UTF-8";
-            req.KeepAlive = false;
-            req.Timeout = System.Threading.Timeout.Infinite;
-            byte[] credentials = Encoding.UTF8.GetBytes(postData);
-            req.ContentLength = credentials.Length;
-            using (Stream stWrite = req.GetRequestStream())
+        
+        public List<string> GetTrains()
+        {
+
+            string request = uri + postDatas + "&travelCLass=ZZ&confirmTktStatus=Probable&statusType=0&getAlternates=true&nearestRailwayStation=true&quota=GN";
+            
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(request);
+            HttpWebResponse res = (HttpWebResponse)req.GetResponse();
+            string response;
+            using (Stream s = res.GetResponseStream())
             {
-                stWrite.Write(credentials, 0, credentials.Length);
+                using (StreamReader reader = new StreamReader(s))
+                    response = reader.ReadToEnd();
             }
-            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
-            using (Stream read = resp.GetResponseStream())
+            JObject trains = JObject.Parse(response);
+            JArray trainArray = (JArray)trains["direct"];
+            var trainDets = from train in trainArray
+                       where train["train"]["DaysOfRun"][dayOfWeek].ToString().Equals("True")
+                       select new { trainName = train["train"]["trainName"], trainNo = train["train"]["trainNumber"] }; //train["train"]["trainName"];
+            List<string> trainLists = new List<string>();
+            foreach(var tr in trainDets)
             {
-                using (StreamReader reading = new StreamReader(read))
-                {
-                    result = reading.ReadToEnd();
-                }
+                trainLists.Add(tr.trainNo + " " + tr.trainName);
             }
-            doc.LoadHtml(result);
-            var node = doc.DocumentNode.SelectSingleNode("(//table//tbody)[3]");
-            var nodes = node.ChildNodes;
-            foreach (var nd in nodes)
-            {
-                if (nd.Name == "tr")
-                {
-                    trains.Add(nd.InnerText.Trim().Replace("\t", ""));
-                }
-            }
+            return trainLists;
         }
     }
 }
